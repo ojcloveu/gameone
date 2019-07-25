@@ -10,7 +10,7 @@ import Pict1 from './assets/images/1.png'
 import Pict2 from './assets/images/2.png'
 import Pict3 from './assets/images/3.png'
 import Pict4 from './assets/images/4.png'
-
+import Button from '@material-ui/core/Button';
 
 function App() {
   const [playerOne, setPlayerOne] =React.useState('');
@@ -79,7 +79,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={()=>onPlay()}>Let Play</button>
+      <Button variant="contained" onClick={()=>onPlay()}>
+      Let Play
+      </Button>
+        
         <Grid container spacing={3}>
           <Grid item xs align="right">
             
