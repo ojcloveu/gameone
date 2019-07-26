@@ -31,35 +31,48 @@ function App() {
   }
 
   var colors = ['Blue','Green','Red','Yello', 'Blue','Green','Red','Yello', 'Blue','Green','Red','Yello'];
-  var numbers = [1,2,3, 1,2,3, 1,2,3, 1,2,3]
+  var numbers = [1,2,3]
 
 
   const onRadom = () => {
     colors = colors.sort(function() { return 0.5 - Math.random() });
-    numbers = numbers.sort(function() { return 0.5 - Math.random() });
+    var numbersBlue = numbers.sort(function() { return 0.5 - Math.random() });
+    var numbersGreen = numbers.sort(function() { return 0.5 - Math.random() });
+    var numbersRed = numbers.sort(function() { return 0.5 - Math.random() });
+    var numbersYellow = numbers.sort(function() { return 0.5 - Math.random() });
 
     const arrColors = chunkArray(colors, 4);
   
     const arrNumber = chunkArray(numbers, 4);
+    
 
     var results = '<table>'
+    let nn =0;
     arrColors.forEach((v,i) => {
       let n = arrNumber[i]
       results+='<tr>'
       v.forEach( (vv,ii) => {
-        let nn = n[ii]
+       
         switch(vv){
           case 'Blue':
-              results+=`<td> <span style="position: absolute; padding: 50px 64px; color: white; font-size: larger; font-weight: bold;">${nn}</span> <img alt="Remy Sharp" src="${Pict1}" width="140"  /> </td>`
+              nn = [...numbersBlue];
+              numbersBlue = nn.slice(1)
+              results+=`<td> <span style="position: absolute; padding: 50px 64px; color: white; font-size: larger; font-weight: bold;">${nn[0]}</span> <img alt="Remy Sharp" src="${Pict1}" width="140"  /> </td>`
             break;
             case 'Green':
-                results+=`<td> <span style="position: absolute; padding: 45px 57px; color: white; font-size: larger; font-weight: bold;">${nn}</span> <img alt="Remy Sharp" src="${Pict2}" width="120"  /> </td>`
+                nn = [...numbersGreen];
+                numbersGreen = nn.slice(1)
+                results+=`<td> <span style="position: absolute; padding: 45px 57px; color: white; font-size: larger; font-weight: bold;">${nn[0]}</span> <img alt="Remy Sharp" src="${Pict2}" width="120"  /> </td>`
               break;
             case 'Red':
-                results+=`<td> <span style="position: absolute; padding: 64px 54px; color: white; font-size: larger; font-weight: bold;">${nn}</span> <img alt="Remy Sharp" src="${Pict4}" width="120"  /> </td>`
+                nn = [...numbersRed];
+                numbersRed = nn.slice(1)
+                results+=`<td> <span style="position: absolute; padding: 64px 54px; color: white; font-size: larger; font-weight: bold;">${nn[0]}</span> <img alt="Remy Sharp" src="${Pict4}" width="120"  /> </td>`
               break;
             default:
-                results+=`<td> <span style="position: absolute; padding: 47px 47px; color: white; font-size: larger; font-weight: bold;">${nn}</span> <img alt="Remy Sharp" src="${Pict3}" width="100"  /> </td>`
+                nn = [...numbersYellow];
+                numbersYellow = nn.slice(1)
+                results+=`<td> <span style="position: absolute; padding: 47px 47px; color: white; font-size: larger; font-weight: bold;">${nn[0]}</span> <img alt="Remy Sharp" src="${Pict3}" width="100"  /> </td>`
               break;
         }
       
